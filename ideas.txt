@@ -1,0 +1,25 @@
+A
+You are scrolling through the feed in your favorite social medea service when you spot a targeted ad for Udacity.com.
+Press 1. to click the link (A1)
+Press 2. to read the comments section (A2)
+
+A1
+You discover a responsive website that looks beautiful on both mobile and desktop devices.
+You spend some time clicking around and come across the Udacity Program Catalog. There are so many programs!
+You have an interest in two of the programs - Full Stack Developer and iOS Developer
+To help you decide which route to take, you roll a pair of dice.
+If the sum of the to dice is even, become a Full Stack Developer
+If the sum of the dice is odd, become an iOS Developer
+Press 1. to roll the dice (B1 for FS, B2 for iOS)
+Press 2. to go back
+
+A2
+The comments are a mix of people bashing the product and those that love it.
+Karen, whose profile picture is a cat, says, "I want to become a developer, but how much does it cost?"
+She asks this question in the comments section even though all the prices are posted on the Udacity website...
+Press 1. to visit Udacity's website. (goto A1)
+Press 2. to disregard the targeted ad and give up pursuing an exciting new career. (exit)
+
+B1
+
+B2
