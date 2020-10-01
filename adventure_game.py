@@ -1,6 +1,5 @@
 import dice
 import sys
-import csv
 from time import sleep
 
 MESSAGE_PAUSE_LENGTH = 1
