@@ -5,8 +5,28 @@ from time import sleep
 MESSAGE_PAUSE_LENGTH = 1
 SLOW_TEXT_SPEED = 0.01
 
-def display_intro():
+current_scene = 0   # Used as reference for scene text files
+
+def control_scene_flow(current_scene: int):
+    scene_file_path = "./scenes/" + str(current_scene) + "_scene.txt"
+    options_file_path = "./scenes/" + str(current_scene) + "_options.txt"
+    
+    display_scene(scene_file_path)
+    current_scene = get_decision(options_file_path)
+
+    # TODO
+    if current_scene == 99: # Recursive base case
+        print("fjas;lfjas;lfjasdf;lkj")
+    else:
+        clear_screen()
+        control_scene_flow(current_scene)   # Use recursion to stack the function
+
+
+def clear_screen():
     print("\n" * 500)
+
+def display_intro():
+    clear_screen()
     print("""
   __  __   __         _ __         ___     __              __              
  / / / /__/ /__ _____(_) /___ __  / _ |___/ /  _____ ___  / /___ _________ 
@@ -39,14 +59,18 @@ def get_decision(options_txt_file):
             print(line.strip())
         option_count = len(lines)
         message = ": "
+        invalid_message = "Invalid. Try again: "
         while True:
             decision = input(message)
             if decision.isdigit() == True:
                 decision = int(decision)
                 if decision in range(1, option_count + 1):
                     break
+                else:
+                    message = invalid_message
             else:
-                message = "Invalid. Try again: "
+                message = invalid_message
+
 
         return decision
 
@@ -60,6 +84,8 @@ def print_slowly(text, pause_sentences = True):
         print(c, sep='', end='', flush=True); sleep(SLOW_TEXT_SPEED)
 
 
+
+
+
 display_intro()
-display_scene("./scenes/0_scene.txt")
-print(get_decision("./scenes/0_options.txt"))
+control_scene_flow(0)
