@@ -4,10 +4,5 @@ scene_controller = gc.SceneController()
 scene = scene_controller.create_scene_from_file("test_values.txt")
 scene_controller.add_scene(scene)
 
-print(scene_controller.scenes)
-
-test = scene_controller.scenes[0]
-print(test.id)
-
-
+scene_controller.print_scene(scene_controller.scenes[69])
 
