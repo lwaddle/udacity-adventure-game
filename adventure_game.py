@@ -1,5 +1,6 @@
 import dice
 import sys
+import csv
 from time import sleep
 
 MESSAGE_PAUSE_LENGTH = 1
@@ -10,16 +11,24 @@ current_scene = 0   # Used as reference for scene text files
 def control_scene_flow(current_scene: int):
     scene_file_path = "./scenes/" + str(current_scene) + "_scene.txt"
     options_file_path = "./scenes/" + str(current_scene) + "_options.txt"
+    options_map_path = "./scenes/" + str(current_scene) + "_options_map.csv"
     
     display_scene(scene_file_path)
-    current_scene = get_decision(options_file_path)
+    decision = get_decision(options_file_path)
+
+    map_dict = {}
+    with open(options_map_path) as f:
+        map = csv.DictReader(f)
+        map_dict = next(map)
+    
+    print(map_dict)
 
     # TODO
-    if current_scene == 99: # Recursive base case
-        print("fjas;lfjas;lfjasdf;lkj")
-    else:
-        clear_screen()
-        control_scene_flow(current_scene)   # Use recursion to stack the function
+    # if current_scene == 99: # Recursive base case
+    #     print("fjas;lfjas;lfjasdf;lkj") # Exit the function and print some sort of exit message
+    # else:
+    #     clear_screen()
+    #     control_scene_flow(current_scene)   # Use recursion to stack the function
 
 
 def clear_screen():

@@ -1,0 +1,18 @@
+@start_id@
+69
+@end_id@
+
+@start_scene@
+This is just a test of
+how things will work
+What do you think?
+@end_scene@
+
+@start_options@
+1. Visit Website
+2. Go to comments
+3. Go fuck yourself
+@end_options@
+
+@is_dice_game
+False
