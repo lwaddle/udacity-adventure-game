@@ -1,0 +1,11 @@
+@scene_id
+0
+@scene_string
+Welcome to my silly Udacity adventure game!
+It doesn't do much, but it was good practice.
+@options_string
+Would you like to play? (y/n)
+@choice_dict
+y   1
+n   exit
+@end

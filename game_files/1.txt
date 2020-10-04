@@ -1,0 +1,7 @@
+@scene_string
+
+@options_string
+
+@targets
+y   1
+n   exit
