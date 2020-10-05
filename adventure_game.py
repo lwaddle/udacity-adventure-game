@@ -1,4 +1,5 @@
 import os
+from time import sleep
 
 
 def main():
@@ -8,7 +9,6 @@ def main():
     game_model.load_scene_store()           # Load up all the scene objects from the text files
     scene_controller = SceneController(game_model, "0")
 
-    print(game_model.scene_store)
 
 class GameModel:
     def __init__(self):
@@ -132,5 +132,24 @@ class SceneController:
     def print_scenes(self):
         print(self.scenes)
 
-    
+
+class TextEffect:
+    def __init__(self):
+        self.pause_length = 1            # Time in seconds used when _pause() is called
+        self.slow_text_speed = 0.01      # Smaller number makes text print faster when print_slowly() is called
+
+    def print_slowly(self, text, pause_sentences=True):
+        """Creates a classic scroll effect on the text as it prints to the screen"""
+        for c in text:
+            if c == "\n":
+                if pause_sentences == True:
+                    self._pause()
+
+            print(c, sep='', end='', flush=True)
+            sleep(self.slow_text_speed)
+
+    def _pause(self):
+        sleep(self.pause_length)
+
+
 main()
