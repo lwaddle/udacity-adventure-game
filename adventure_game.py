@@ -131,10 +131,6 @@ class SceneController:
     
     def _clear_screen(self):
         print("\n" * 500)
-    
-    def _play_dice_game(self, target: str):
-        # TODO
-        pass
 
     def _display_scene(self):
         self._clear_screen()
@@ -176,6 +172,11 @@ class SceneController:
     def _next_scene_for_target(self, target: str):
         self._push_scene_with_scene_id(target)
         self._display_scene()
+
+    def _play_dice_game(self, target: str):
+        print("Play the dice game")
+        # TODO
+        pass
     
     def _push_scene(self, scene: Scene):
         self.scenes.append(scene)
