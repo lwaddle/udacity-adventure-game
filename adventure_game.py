@@ -1,4 +1,5 @@
 import os
+import sys
 from time import sleep
 
 
@@ -104,7 +105,11 @@ class GameModel:
 
 
 class Scene:
+
+    scene_count = 0
+
     def __init__(self):
+        Scene.scene_count += 1
         self.choice_dict = {}
         self.options_string = ""
         self.scene_id = ""
@@ -117,11 +122,60 @@ class SceneController:
         self.root_scene = self._get_scene_with_scene_id(root_scene)    # First scene object in the stack - welcome screen
         self.scenes = []    # Stack of scene objects
         
-        # Push the root scene to the scene stack
-        self._push_scene(self.root_scene)
+        self.start_game()
+    
+    def start_game(self):
+            self.scenes = []
+            self._push_scene(self.root_scene)   # Push the root scene to the scene stack
+            self._display_scene()
+    
+    def _clear_screen(self):
+        print("\n" * 500)
+    
+    def _play_dice_game(self, target: str):
+        # TODO
+        pass
 
+    def _display_scene(self):
+        self._clear_screen()
+        current_scene = self.scenes[-1]
+        print(current_scene.scene_id)   # TODO delete this after testing
+        print(current_scene.scene_string + "\n")
+        print(current_scene.options_string)
+        if current_scene.scene_id == "exit":
+            return 0
+        else:
+            choice = self._get_choice(current_scene.options_string, current_scene.choice_dict)
+            target = current_scene.choice_dict[choice]
+            if target == "back":
+                self._go_back()
+            if target == "dice":
+                self._play_dice_game(target)
+            else:
+                self._next_scene_for_target(target)
+
+
+    def _get_choice(self, options_string: str, choice_dict: dict):
+        choice = ""
+        while True:
+            choice = input(": ")
+            if choice.lower() not in choice_dict.keys():
+                print("Invalid entry.")
+                print(options_string)
+            else:
+                break
+        return choice.lower()
+    
     def _get_scene_with_scene_id(self, scene_id: str):
         return self.game_model.scene_store[scene_id]
+    
+    def _go_back(self):
+        self.scenes.pop()
+        self._display_scene()
+    
+    def _next_scene_for_target(self, target: str):
+        self._push_scene_with_scene_id(target)
+        self._display_scene()
     
     def _push_scene(self, scene: Scene):
         self.scenes.append(scene)

@@ -2,6 +2,14 @@
 0
 @end_scene_id@
 @start_scene_string@
+###################################################
+#                                                 #
+#   U D A C I T Y   A D V E N T U R E   G A M E   #
+#                                                 #
+###################################################
+
+
+
 Welcome to my silly Udacity adventure game!
 It doesn't do much, but it was good practice.
 @end_scene_string@

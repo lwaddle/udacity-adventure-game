@@ -1,0 +1,10 @@
+@start_scene_id@
+exit
+@end_scene_id@
+@start_scene_string@
+Goodbye!
+@end_scene_string@
+@start_options_string@
+@end_options_string@
+@start_choice_dict@
+@end_choice_dict@

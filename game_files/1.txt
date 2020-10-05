@@ -2,12 +2,12 @@
 1
 @end_scene_id@
 @start_scene_string@
-This is scene 1
-Blah blah blah
+You are scrolling through the feed in your favorite social media service
+when you spot a targeted ad for Udacity.com.
 @end_scene_string@
 @start_options_string@
-Press 1 to goto scene 2a
-Press 2 to got scene 2b
+Press 1. Click the Udacity link.
+Press 2. Read the comments section.
 @end_options_string@
 @start_choice_dict@
 1 2a
