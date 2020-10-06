@@ -1,7 +1,86 @@
-import os
-import sys
-from time import sleep
+# import os
+# from time import sleep
 
+
+# def main() -> int:
+#     game_delegate = GameDelegate()
+#     navigation_controller = NavigationController()
+#     root_scene_controller = SceneController()
+
+#     root_scene_controller.delegate = navigation_controller
+
+#     navigation_controller.root_scene_controller = root_scene_controller
+
+#     print(game_delegate)
+#     print(root_scene_controller.delegate)
+
+#     return 0
+
+
+# class GameDelegate:
+#     def __init__(self):
+#         self.navigation_controller: NavigationController
+
+#     def launch_game(self):
+#         pass
+
+# class NavigationController:
+#     def __init__(self):
+#         self.root_scene_controller: SceneController
+#         self.scene_controllers: list[SceneController]
+
+
+# class SceneController:
+#     def __init__(self):
+#         self.choice_dict: dict[str:str]
+#         self.delegate: id
+#         self.scene_id: str
+#         self.scene_string: str
+#         self.options_string: str
+
+#     def present_scene_controller(self) -> int:
+#         return 0
+
+
+# main()
+def main():
+    game_delegate = GameDelegate()
+    print(game_delegate.root_scene_controller.title)
+
+class GameDelegate:
+    def __init__(self):
+        self.root_scene_controller = None
+        self.scene_controllers = []
+
+        if self.did_finish_launching():
+            print ("It finished launching")
+
+    def did_finish_launching(self) -> bool:
+        # Setup the root SceneController here
+        root_scene_controller = SceneController()
+        root_scene_controller.title = "Welcome"
+        self.root_scene_controller = root_scene_controller
+        
+        return True
+
+    def push_scene_controller(self, scene_controller: SceneController):
+        self.scene_controllers.append(scene_controller)
+
+
+class GameModel:
+    pass
+
+
+class SceneController:
+    def __init__(self):
+        self.scenes: list[SceneController]
+        self.title: str
+
+    def present_scene_controller(self, scene_controller: SceneController):
+        push_scene_controller(scene_controller)
+
+
+main()
 
 def main():
     game_file_dir_rel_path = "./game_files/"
