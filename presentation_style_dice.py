@@ -1,0 +1,2 @@
+class PresentationStyleDice(PresentationStyle):
+    pass

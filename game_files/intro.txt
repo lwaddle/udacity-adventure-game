@@ -1,6 +1,6 @@
-@start_scene_id@
-0
-@end_scene_id@
+@start_presentation_style@
+default
+@end_presentation_style@
 @start_scene_string@
 ###################################################
 #                                                 #
@@ -16,7 +16,7 @@ It doesn't do much, but it was good practice.
 @start_options_string@
 Would you like to play? (y/n)
 @end_options_string@
-@start_choice_dict@
+@start_choice_target_dict@
 y 1
 n exit
-@end_choice_dict@
+@end_choice_target_dict@
