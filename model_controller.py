@@ -28,6 +28,7 @@ class ModelController:
                             json_file = json.load(f)
                             scene.scene_id = json_file["scene_id"]
                             scene.presentation_style = json_file["presentation_style"]
+                            scene.print_slowly = json_file["print_slowly"]
                             scene.options_strings = json_file["options_strings"]
                             scene.choice_target_dict = json_file["choice_target_dict"]
                             self.game_data[scene.scene_id] = scene

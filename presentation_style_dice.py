@@ -1,2 +1,0 @@
-class PresentationStyleDice(PresentationStyle):
-    pass
