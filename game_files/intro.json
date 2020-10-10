@@ -1,0 +1,6 @@
+{
+    "scene_id" : "intro",
+    "presentation_style" : "default",
+    "options_strings" : ["opt1", "opt2"],
+    "choice_target_dict" : {"y" : "1", "n" : "exit"}
+}

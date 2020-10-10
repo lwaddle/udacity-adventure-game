@@ -1,7 +1,3 @@
-@start_presentation_style@
-default
-@end_presentation_style@
-@start_scene_string@
 ###################################################
 #                                                 #
 #   U D A C I T Y   A D V E N T U R E   G A M E   #
@@ -10,13 +6,6 @@ default
 
 
 
+
 Welcome to my silly Udacity adventure game!
 It doesn't do much, but it was good practice.
-@end_scene_string@
-@start_options_string@
-Would you like to play? (y/n)
-@end_options_string@
-@start_choice_target_dict@
-y 1
-n exit
-@end_choice_target_dict@

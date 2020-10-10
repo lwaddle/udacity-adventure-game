@@ -1,52 +1,51 @@
+import json
 import os
-from scene_file import SceneFile
+from scene import Scene
 
 
 class ModelController:
-    def __init__(self, game_file_directory: str, game_file_section_tags: list):
-        self.game_data: dict[str : SceneFile]
+    def __init__(self, game_file_directory: str):
+        self.game_data = {}
         self.game_file_directory = game_file_directory
-  ##### TODO ########## Think about how to parse the game files #####
-        self.game_file_section_tags = game_file_section_tags        #
-  ###################################################################
-        self._load_game_data()     # Populate the data_store dict
+        self._load_game_data()     # Populate the game_data dict
 
     def _is_valid_game_file_directory(self):
         return os.path.exists(self.game_file_directory)
-
-    def _list_sections_of_game_file(self) -> list:
-        pass
     
     def _load_game_data(self):
         """
         Populates the game_data dict with a SceneFile object for each
-        game file in the game_file directory. Game files are text files that
-        use special tags that can be parsed for scene information. See readme.txt
-        TODO - Write documentation for game file usage in readme.txt
+        game file in the game_file directory.
         """
-        if self._is_valid_game_file_directory():
-            text_file_names = os.listdir(self.game_file_directory)
-            text_file_paths = []    # This is a list of the full paths to each game text file
-            for file_name in text_file_names:
-                full_path = self.game_file_directory + file_name
-                if os.path.isfile(full_path):
-                    text_file_paths.append(full_path)
-                else:
-                    raise Exception("Error: Invalid file path or name")
-            
-            # TODO - Now that text_file_paths contains all the paths to each text file
-            # I need to open and parse each text file. Maybe a seperate object or method can 
-            # handle this operation. Produce a SceneFile object for each text file
-            # and store it in self.game_data using the scene_id as key
-
-            for text_file in text_file_paths:
-                with open(text_file, "r") as f:
-                    scene = SceneFile()
-                    scene.scene_id = os.path.splitext((os.path.split(text_file)[1]))[0] # Get just the filename
-                    print(scene.scene_id)
-                    
-
+        if not self._is_valid_game_file_directory():
+            raise Exception("Invalid game file directory")
         else:
-            raise Exception("Error: Game file directory is invalid.")
-        # TODO
+            for file in os.listdir(self.game_file_directory):
+                scene = Scene()
+                if str(file).endswith("json"):
+                    try:
+                        with open(self.game_file_directory + file) as f:
+                            json_file = json.load(f)
+                            scene.scene_id = json_file["scene_id"]
+                            scene.presentation_style = json_file["presentation_style"]
+                            scene.options_strings = json_file["options_strings"]
+                            scene.choice_target_dict = json_file["choice_target_dict"]
+                            self.game_data[scene.scene_id] = scene
+                    except:
+                        raise Exception("Unable to update Scene object from JSON file.")
 
+            for file in os.listdir(self.game_file_directory):    
+                if str(file).endswith("txt"):
+                    try:
+                        with open(self.game_file_directory + file) as f:
+                            list_text = f.readlines()
+                            scene_string = ""
+                            for line in list_text:
+                                scene_string += line
+                            
+                            file_prefix = str(file).strip(".txt")
+                            if file_prefix in self.game_data.keys():
+                                tmp_scene_object = self.game_data[file_prefix]
+                                tmp_scene_object.scene_string = scene_string
+                    except:
+                        raise Exception("Unable to open game text file.")
