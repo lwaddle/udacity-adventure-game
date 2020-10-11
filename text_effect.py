@@ -1,7 +1,7 @@
 from time import sleep
 
 
-DEFAULT_PAUSE_LENGTH = 0.5          # Time in seconds to pause between senetences (1 works well)
+DEFAULT_PAUSE_LENGTH = 0.0          # Time in seconds to pause between senetences (1 works well)
 DEFAULT_SLOW_TEXT_SPEED = 0.001     # A smaller number makes text print faster (0.01 works well)
 
 class TextEffect:

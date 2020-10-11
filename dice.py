@@ -1,14 +1,19 @@
 from random import randint
 
-def roll_two_dice(graphical = True):
-    """Returns a tuple of two integers that simulates a random
+class Dice:
+    def __init__(self):
+        pass
+
+def roll_two_dice(graphical=True):
+    """
+    Returns a tuple of two integers that simulates a random
     dice roll. The return values are between 1 and 6. The optional
     graphical parameter displays an ASCII art representation of 
-    the 2 die's random values displayed as a * symbol."""
+    the 2 die's random values displayed as a * symbol.
+    """
 
     die_1 = get_random_die()  # Set random value between 1 - 6
     die_2 = get_random_die()  # Set random value between 1 - 6
-
 
     # -------------------
     # DIE MAP DESCRIPTION
@@ -38,8 +43,5 @@ def roll_two_dice(graphical = True):
 
     return (die_1, die_2)
 
-
 def get_random_die():
     return randint(1, 6)
-
-

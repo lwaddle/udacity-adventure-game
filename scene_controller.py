@@ -1,3 +1,4 @@
+from dice import Dice
 from model_controller import ModelController
 from scene import Scene
 from text_effect import TextEffect
