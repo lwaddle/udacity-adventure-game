@@ -5,9 +5,21 @@ class NavigationController(SceneController):
     def __init__(self):
         self.scene_controllers = []
 
-    def dismiss_scene(self, scene_controller_to_dismiss=None):
+    def pop_scene_controller(self, scene_controller: SceneController):
+        """
+        Pops the top scene controller from the navigation stack and updates the display
+        """
         self.scene_controllers.pop()
-
-    def present_scene(self, scene_controller_to_present=None):
-        # Overide method here
-        self.scene_controllers.append(scene_controller_to_present)
+        scene_controller = None
+        # Update the display
+        if len(self.scene_controllers) >= 1:
+            self.scene_controllers[-1].print_scene_to_console()
+        pass # TODO
+    
+    def push_scene_controller(self, scene_controller: SceneController):
+        """
+        Adds scene to the navigation stack and updates the display
+        """
+        self.scene_controllers.append(scene_controller)
+        # Update the display
+        scene_controller.print_scene_to_console()

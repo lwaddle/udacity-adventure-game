@@ -29,7 +29,7 @@ class ModelController:
                             scene.scene_id = json_file["scene_id"]
                             scene.presentation_style = json_file["presentation_style"]
                             scene.print_slowly = json_file["print_slowly"]
-                            scene.options_strings = json_file["options_strings"]
+                            scene.options_string = json_file["options_string"]
                             scene.choice_target_dict = json_file["choice_target_dict"]
                             self.game_data[scene.scene_id] = scene
                     except:

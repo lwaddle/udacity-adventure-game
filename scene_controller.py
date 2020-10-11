@@ -1,27 +1,30 @@
 from model_controller import ModelController
+from scene import Scene
 
 
 class SceneController():
     def __init__(self):
         self.delegate: id
         self.model_controller: ModelController
-        self.presentation_style: str    # default or dice
-        self.scene_id: str
-        self.scene_main_message: str
-        self.print_slowly: bool
+        self.scene: Scene
 
-    def dismiss_scene(self, scene_controller_to_dismiss=None):
-        """
-        Removes scene from view hierarchy
-        """
-        self.delegate.dismiss_scene(self)
+    def get_user_input(self) -> str:
+        user_input = ""
+        while True:
+            print(self.scene.options_string)
+            user_input = input(": ")
+            if user_input in self.scene.choice_target_dict.keys():
+                break
+        
+        return user_input
 
-    def present_scene(self, scene_controller_to_present=None):
-        """
-        Adds scene to view hierarchy
-        """
-        self.delegate.present_scene(self)
+    def next_scene_for_user_input(self, user_input: str) -> Scene:
+        target = self.scene.choice_target_dict[user_input]
+        return self.model_controller.game_data[target]
 
     def print_scene_to_console(self):
         # TODO
-        pass
+        print(self.scene.scene_string)
+        user_input = self.get_user_input()
+
+        #self.delegate.push_scene_controller(self.next_scene_for_user_input(user_input))
