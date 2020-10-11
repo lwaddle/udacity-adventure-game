@@ -1,11 +1,2 @@
-This is scene 1
-
-
-
-sdf;asljfas;lf
-asljfas
-
-sdfasdfsaf
-
-
-asdfasf
+You are scrolling through the feed in your favorite social media service
+when you spot a targeted ad for Udacity.com.

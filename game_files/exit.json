@@ -3,5 +3,5 @@
     "presentation_style" : "default",
     "print_slowly" : false,
     "options_string" : "opt1",
-    "choice_target_dict" : {"y" : "1", "n" : "exit"}
+    "choice_target_dict" : {"y" : "1", "n" : "back"}
 }
