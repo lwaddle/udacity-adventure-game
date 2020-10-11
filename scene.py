@@ -6,5 +6,4 @@ class Scene:
         self.print_slowly: bool
         self.scene_id: str
         self.scene_string: str
-
-    # TODO
+        

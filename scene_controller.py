@@ -17,7 +17,6 @@ class SceneController():
             user_input = str(input(": ")).lower()
             if user_input in self.scene.choice_target_dict.keys():
                 break
-        print(user_input)
         return user_input
 
     def next_scene_for_user_input(self, user_input: str) -> Scene:
@@ -25,7 +24,7 @@ class SceneController():
         return self.model_controller.game_data[target]
 
     def print_scene_to_console(self):
-        print("\n" * 500)
+        self.text_effect.clear_screen()
         if self.scene.print_slowly == True:
             self.text_effect.print_slowly(self.scene.scene_string, self.scene.print_slowly)
         else:
@@ -43,8 +42,7 @@ class SceneController():
         if target in ["back", "exit"]:
             if target == "back":
                 self.delegate.pop_scene_controller(self)
-
-        # if user_input == "exit":
-        #     print("exit was selected")
-
-        #self.delegate.push_scene_controller(self.next_scene_for_user_input(user_input))
+            if target == "exit":
+                self.delegate.scene_controllers = []
+                self.text_effect.clear_screen()
+                print(self.model_controller.game_data["exit"].scene_string)

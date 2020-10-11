@@ -44,9 +44,10 @@ class ModelController:
                             for line in list_text:
                                 scene_string += line
                             
-                            file_prefix = str(file).strip(".txt")
+                            file_prefix = os.path.splitext(file)[0]
                             if file_prefix in self.game_data.keys():
                                 tmp_scene_object = self.game_data[file_prefix]
                                 tmp_scene_object.scene_string = scene_string
+                                print(tmp_scene_object.scene_string)
                     except:
                         raise Exception("Unable to open game text file.")
