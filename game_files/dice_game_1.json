@@ -3,5 +3,5 @@
     "presentation_style" : "dice",
     "print_slowly" : false,
     "options_string" : "Press 1 to continue\nPress 2 to go back",
-    "choice_target_dict" : {"1" : "2a", "2" : "back"}
+    "choice_target_dict" : {"" : "4a"}
 }

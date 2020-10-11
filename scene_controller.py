@@ -20,6 +20,11 @@ class SceneController():
                 break
         return user_input
 
+    def is_even(self, n: int) -> bool:
+        if n % 2 == 0:
+            return True
+        return False
+
     def next_scene_for_user_input(self, user_input: str) -> Scene:
         target = self.scene.choice_target_dict[user_input]
         return self.model_controller.game_data[target]
@@ -30,7 +35,30 @@ class SceneController():
             self.text_effect.print_slowly(self.scene.scene_string, self.scene.print_slowly)
         else:
             print(self.scene.scene_string)
-        user_input = self.get_user_input()
+        
+
+
+        if self.scene.presentation_style == "dice":
+            # Roll the dice
+            # TODO
+            dice_roll = Dice()
+            (die_1, die_2) = dice_roll.roll_two_dice()
+            even_or_odd = ""
+            if self.is_even(self.sum(die_1, die_2)):
+                even_or_odd = "even"
+            else:
+                even_or_odd = "odd"
+            print(f"You rolled a {die_1} and a {die_2}.\nThe sum is {self.sum(die_1, die_2)}, which is {even_or_odd}.")
+            exit_loop = "."
+            while exit_loop != "":
+                exit_loop = input("Press ENTER to continue: ")
+            user_input = exit_loop
+        else:
+            user_input = self.get_user_input()
+        
+
+        
+        
         target = self.scene.choice_target_dict[user_input]
         if target not in ["back", "exit"]:
             # Create a new scene controller and add it to the navigation controller
@@ -47,3 +75,6 @@ class SceneController():
                 self.delegate.scene_controllers = []
                 self.text_effect.clear_screen()
                 print(self.model_controller.game_data["exit"].scene_string)
+
+    def sum(self, a, b):
+        return a + b
