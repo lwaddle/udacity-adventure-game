@@ -14,7 +14,6 @@ class NavigationController(SceneController):
         # Update the display
         if len(self.scene_controllers) >= 1:
             self.scene_controllers[-1].print_scene_to_console()
-        pass # TODO
     
     def push_scene_controller(self, scene_controller: SceneController):
         """

@@ -32,23 +32,13 @@ class SceneController():
     def print_scene_to_console(self):
         self.text_effect.clear_screen()
         
-        
-        
-        # TODO Delete this test print
-        print(self.scene.scene_id)
-        
-        
-        
         if self.scene.print_slowly == True:
             self.text_effect.print_slowly(self.scene.scene_string, self.scene.print_slowly)
         else:
             print(self.scene.scene_string)
         
-
-
         if self.scene.presentation_style == "dice":
             # Roll the dice
-            # TODO
             dice_roll = Dice()
             (die_1, die_2) = dice_roll.roll_two_dice()
             even_or_odd = ""

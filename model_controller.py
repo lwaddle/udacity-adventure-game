@@ -11,7 +11,7 @@ class ModelController:
 
     def _is_valid_game_file_directory(self):
         return os.path.exists(self.game_file_directory)
-    
+
     def _load_game_data(self):
         """
         Populates the game_data dict with a SceneFile object for each
@@ -27,10 +27,14 @@ class ModelController:
                         with open(self.game_file_directory + file) as f:
                             json_file = json.load(f)
                             scene.scene_id = json_file["scene_id"]
-                            scene.presentation_style = json_file["presentation_style"]
+                            scene.presentation_style = json_file[
+                                "presentation_style"
+                                ]
                             scene.print_slowly = json_file["print_slowly"]
                             scene.options_string = json_file["options_string"]
-                            scene.choice_target_dict = json_file["choice_target_dict"]
+                            scene.choice_target_dict = json_file[
+                                "choice_target_dict"
+                                ]
                             try:
                                 scene.roll_message = json_file["roll_message"]
                             except:
@@ -39,7 +43,7 @@ class ModelController:
                     except:
                         raise Exception("Unable to update Scene object from JSON file.")
 
-            for file in os.listdir(self.game_file_directory):    
+            for file in os.listdir(self.game_file_directory):
                 if str(file).endswith("txt"):
                     try:
                         with open(self.game_file_directory + file) as f:
@@ -47,7 +51,7 @@ class ModelController:
                             scene_string = ""
                             for line in list_text:
                                 scene_string += line
-                            
+
                             file_prefix = os.path.splitext(file)[0]
                             if file_prefix in self.game_data.keys():
                                 tmp_scene_object = self.game_data[file_prefix]
