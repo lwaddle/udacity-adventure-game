@@ -1,2 +1,15 @@
-4a
-iOS
+You enroll in the program and learn the basics of
+iOS app development using the Swift programming language
+and Xcode, Apple's development environment.
+
+You develop your first iOS apps using layouts, views,
+UIKit, and more.
+
+You progress to build more complex and advanced applications,
+using networking, and Apple’s Grand Central Dispatch
+and Core Data.
+
+You publish your capstone project to the App Store.
+
+Yay!
+
