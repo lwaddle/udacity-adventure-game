@@ -1,2 +1,14 @@
-4b
-Full Stack
+You enroll in the program and learn the unique skills
+to build database-backed APIs and web applications.
+
+As a graduate of this program, you are able to design
+and build databases for software applications, create
+and deploy database-backed web APIs, and secure and manage
+user authentication and access control for an
+application backend.
+
+You can also deploy a Flask-based web
+application to the cloud using Docker and Kubernetes.
+
+Yay!
+

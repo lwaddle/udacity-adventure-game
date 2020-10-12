@@ -31,6 +31,10 @@ class ModelController:
                             scene.print_slowly = json_file["print_slowly"]
                             scene.options_string = json_file["options_string"]
                             scene.choice_target_dict = json_file["choice_target_dict"]
+                            try:
+                                scene.roll_message = json_file["roll_message"]
+                            except:
+                                print("no roll message")
                             self.game_data[scene.scene_id] = scene
                     except:
                         raise Exception("Unable to update Scene object from JSON file.")

@@ -2,6 +2,6 @@
     "scene_id" : "4b",
     "presentation_style" : "default",
     "print_slowly" : true,
-    "options_string" : "Press 1 to roll the dice\nPress 2 to go back",
-    "choice_target_dict" : {"1" : "dice_game_1", "2" : "back"}
+    "options_string" : "Press 1 play again\nPress 2 to exit",
+    "choice_target_dict" : {"1" : "new_game", "2" : "exit"}
 }

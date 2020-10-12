@@ -61,7 +61,7 @@ class SceneController():
             print(f"\n\nYou rolled a {die_1} and a {die_2}.\n\nThe sum is {self.sum(die_1, die_2)}, which is {even_or_odd}.\n\n")
             exit_loop = "." # Dummy value.
             while exit_loop != "":
-                exit_loop = input("Press ENTER to continue: ")
+                exit_loop = input(f"Press ENTER to continue to the {self.scene.roll_message[even_or_odd]} program: ")
             
             
             
@@ -72,7 +72,7 @@ class SceneController():
         
         
         target = self.scene.choice_target_dict[user_input]
-        if target not in ["back", "exit"]:
+        if target not in ["back", "exit", "new_game"]:
             # Create a new scene controller and add it to the navigation controller
             next_scene_controller = SceneController()
             next_scene_controller.delegate = self.delegate
@@ -80,13 +80,19 @@ class SceneController():
             next_scene_controller.scene = self.next_scene_for_user_input(user_input)
             next_scene_controller.delegate.push_scene_controller(next_scene_controller)
 
-        if target in ["back", "exit"]:
+        if target in ["back", "exit", "new_game"]:
             if target == "back":
                 self.delegate.pop_scene_controller(self)
             if target == "exit":
                 self.delegate.scene_controllers = []
                 self.text_effect.clear_screen()
                 print(self.model_controller.game_data["exit"].scene_string)
+            if target == "new_game":
+                tmp_root_scene_controller = self.delegate.scene_controllers[0]
+                self.delegate.scene_controllers = []
+                self.text_effect.clear_screen()
+                self.delegate.push_scene_controller(tmp_root_scene_controller)
+
 
     def sum(self, a, b):
         return a + b

@@ -3,5 +3,6 @@
     "presentation_style" : "dice",
     "print_slowly" : false,
     "options_string" : "Press 1 to continue\nPress 2 to go back",
-    "choice_target_dict" : {"odd" : "4a", "even" : "4b"}
+    "choice_target_dict" : {"odd" : "4a", "even" : "4b"},
+    "roll_message" : {"odd" : "iOS", "even" : "Full Stack"}
 }
