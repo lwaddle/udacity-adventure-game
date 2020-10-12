@@ -1,10 +1,19 @@
-You discover a responsive website that looks beautiful on both mobile and desktop devices.
-You spend some time clicking around and come across the Udacity Program Catalog.
-There are so many programs! You have an interest in two of the programs:
+You discover a responsive website that looks beautiful
+on both mobile and desktop devices.
+
+You spend some time clicking around and 
+come across the Udacity Program Catalog.
+
+There are so many programs!
+
+You have an interest in two of the programs:
 
 - Full Stack Developer and
 - iOS Developer
 
 To help you decide which route to take, you roll a pair of dice.
+
 If the sum of the dice is even, become a Full Stack Developer.
+
 If the sum of the dice is odd, become an iOS Developer.
+

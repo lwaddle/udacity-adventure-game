@@ -31,6 +31,14 @@ class SceneController():
 
     def print_scene_to_console(self):
         self.text_effect.clear_screen()
+        
+        
+        
+        # TODO Delete this test print
+        print(self.scene.scene_id)
+        
+        
+        
         if self.scene.print_slowly == True:
             self.text_effect.print_slowly(self.scene.scene_string, self.scene.print_slowly)
         else:
@@ -46,13 +54,17 @@ class SceneController():
             even_or_odd = ""
             if self.is_even(self.sum(die_1, die_2)):
                 even_or_odd = "even"
+                user_input = even_or_odd
             else:
                 even_or_odd = "odd"
-            print(f"You rolled a {die_1} and a {die_2}.\nThe sum is {self.sum(die_1, die_2)}, which is {even_or_odd}.")
-            exit_loop = "."
+                user_input = even_or_odd
+            print(f"\n\nYou rolled a {die_1} and a {die_2}.\n\nThe sum is {self.sum(die_1, die_2)}, which is {even_or_odd}.\n\n")
+            exit_loop = "." # Dummy value.
             while exit_loop != "":
                 exit_loop = input("Press ENTER to continue: ")
-            user_input = exit_loop
+            
+            
+            
         else:
             user_input = self.get_user_input()
         

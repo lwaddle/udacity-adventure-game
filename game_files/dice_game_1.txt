@@ -1,1 +1,2 @@
-This is the dice game 1 scene_string
+You roll the dice...
+

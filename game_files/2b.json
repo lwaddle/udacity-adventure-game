@@ -1,0 +1,7 @@
+{
+    "scene_id" : "2b",
+    "presentation_style" : "default",
+    "print_slowly" : true,
+    "options_string" : "Press 1 to visit Udacity's website\nPress 2 to go back\nPress 3 to disregard the targeted ad and exit,\n     giving up pursuing an exciting new career",
+    "choice_target_dict" : {"1" : "2a", "2" : "back", "3" : "exit"}
+}

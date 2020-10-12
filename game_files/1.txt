@@ -1,2 +1,7 @@
-You are scrolling through the feed in your favorite social media service
-when you spot a targeted ad for Udacity.com.
+You are scrolling through the feed in your
+favorite social media service when you spot a
+targeted ad for Udacity.com.
+
+Would you like to visit the website
+or just read the commments?
+
