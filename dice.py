@@ -35,11 +35,14 @@ class Dice:
 
         if graphical is True:
             print(
-                f"+-----------+    +-----------+ \
-                \n|  {left[0]}  {left[1]}  {left[2]}  |    |  {right[0]}  {right[1]}  {right[2]}  |\
-                \n|  {left[3]}  {left[4]}  {left[5]}  |    |  {right[3]}  {right[4]}  {right[5]}  |\
-                \n|  {left[6]}  {left[7]}  {left[8]}  |    |  {right[6]}  {right[7]}  {right[8]}  |\
-                \n+-----------+    +-----------+ "
+                f"+-----------+    +-----------+\n" +
+                f"|  {left[0]}  {left[1]}  {left[2]}  |    " +
+                f"|  {right[0]}  {right[1]}  {right[2]}  |\n" +
+                f"|  {left[3]}  {left[4]}  {left[5]}  |    " +
+                f"|  {right[3]}  {right[4]}  {right[5]}  |\n" +
+                f"|  {left[6]}  {left[7]}  {left[8]}  |    " +
+                f"|  {right[6]}  {right[7]}  {right[8]}  |\n" +
+                f"+-----------+    +-----------+"
                 )
 
         return (die_1, die_2)

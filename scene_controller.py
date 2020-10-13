@@ -31,12 +31,11 @@ class SceneController():
 
     def print_scene_to_console(self):
         self.text_effect.clear_screen()
-        
-        if self.scene.print_slowly == True:
-            self.text_effect.print_slowly(self.scene.scene_string, self.scene.print_slowly)
+        if self.scene.print_slowly is True:
+            self.text_effect.print_slowly(self.scene.scene_string,
+                                          self.scene.print_slowly)
         else:
             print(self.scene.scene_string)
-        
         if self.scene.presentation_style == "dice":
             # Roll the dice
             dice_roll = Dice()
@@ -48,27 +47,26 @@ class SceneController():
             else:
                 even_or_odd = "odd"
                 user_input = even_or_odd
-            print(f"\n\nYou rolled a {die_1} and a {die_2}.\n\nThe sum is {self.sum(die_1, die_2)}, which is {even_or_odd}.\n\n")
-            exit_loop = "." # Dummy value.
+            print(f"\n\nYou rolled a {die_1} and a {die_2}.\n\nThe sum is " +
+                  f"{self.sum(die_1, die_2)}, which is {even_or_odd}.\n\n")
+            exit_loop = "."     # Dummy value.
             while exit_loop != "":
-                exit_loop = input(f"Press ENTER to continue to the {self.scene.roll_message[even_or_odd]} program: ")
-            
-            
-            
+                exit_loop = input(f"Press ENTER to continue to the " +
+                                  f"{self.scene.roll_message[even_or_odd]} " +
+                                  f"program: ")
         else:
             user_input = self.get_user_input()
-        
-
-        
-        
         target = self.scene.choice_target_dict[user_input]
         if target not in ["back", "exit", "new_game"]:
-            # Create a new scene controller and add it to the navigation controller
+            # Create a new scene controller and add it
+            # to the navigation controller
             next_scene_controller = SceneController()
             next_scene_controller.delegate = self.delegate
             next_scene_controller.model_controller = self.model_controller
-            next_scene_controller.scene = self.next_scene_for_user_input(user_input)
-            next_scene_controller.delegate.push_scene_controller(next_scene_controller)
+            next_scene_controller.scene = \
+                self.next_scene_for_user_input(user_input)
+            next_scene_controller.delegate.\
+                push_scene_controller(next_scene_controller)
 
         if target in ["back", "exit", "new_game"]:
             if target == "back":
@@ -82,7 +80,6 @@ class SceneController():
                 self.delegate.scene_controllers = []
                 self.text_effect.clear_screen()
                 self.delegate.push_scene_controller(tmp_root_scene_controller)
-
 
     def sum(self, a, b):
         return a + b

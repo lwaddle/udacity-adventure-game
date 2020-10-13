@@ -37,11 +37,12 @@ class ModelController:
                                 ]
                             try:
                                 scene.roll_message = json_file["roll_message"]
-                            except:
+                            except Exception:
                                 print("no roll message")
                             self.game_data[scene.scene_id] = scene
-                    except:
-                        raise Exception("Unable to update Scene object from JSON file.")
+                    except Exception:
+                        raise Exception("Unable to update Scene object from " +
+                                        "JSON file.")
 
             for file in os.listdir(self.game_file_directory):
                 if str(file).endswith("txt"):
@@ -57,5 +58,5 @@ class ModelController:
                                 tmp_scene_object = self.game_data[file_prefix]
                                 tmp_scene_object.scene_string = scene_string
                                 print(tmp_scene_object.scene_string)
-                    except:
+                    except Exception:
                         raise Exception("Unable to open game text file.")

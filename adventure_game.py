@@ -23,11 +23,12 @@ def start_game():
     root_scene_controller = SceneController()
     root_scene_controller.delegate = navigation_controller
     root_scene_controller.model_controller = model_controller
-    root_scene_controller.scene = model_controller.game_data[
-        ROOT_SCENE_CONTROLLER_ID]
+    root_scene_controller.scene = \
+        model_controller.game_data[ROOT_SCENE_CONTROLLER_ID]
 
     # Present the first scene
-    root_scene_controller.delegate.push_scene_controller(root_scene_controller)
+    root_scene_controller.delegate.\
+        push_scene_controller(root_scene_controller)
 
 
 main()
